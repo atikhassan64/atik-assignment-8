@@ -39,7 +39,7 @@ const Header = () => {
                 {links}
             </div>
             <div className=' bg-gradient-to-r from-[#632EE3] to-[#9F62F2] px-4 py-3 rounded-[4px]  '>
-                <a href=""><button className='font-semibold text-white'><i class="fa-brands fa-github"></i> Contribute</button></a>
+                <Link to="https://github.com/atikhassan64/atik-assignment-8.git" target='-blank'><button className='font-semibold text-white cursor-pointer '><i className="fa-brands fa-github"></i> Contribute</button></Link>
             </div>
         </div>
     );
