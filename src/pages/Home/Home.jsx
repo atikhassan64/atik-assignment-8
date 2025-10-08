@@ -1,9 +1,14 @@
 import React from 'react';
+import Banner from '../../components/Banner/Banner';
+import Testimonial from '../../components/Testimonial/Testimonial';
 
 const Home = () => {
     return (
-        <div>
-            <h2>I am Home</h2>
+        <div className='bg-[#F5F5F5]'>
+            <div>
+                <Banner/>
+                <Testimonial/>
+            </div>
         </div>
     );
 };

@@ -31,14 +31,14 @@ const Header = () => {
 
                 <div className='flex items-center gap-1 ml-3'>
                     <img src={logo} alt="" className='w-10 h-10' />
-                    <h2 className='font-bold bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent  '>HERO.IO</h2>
+                    <h2 className='font-bold bg-[linear-gradient(160deg,#632EE3,#9F62F2)] bg-clip-text text-transparent  '>HERO.IO</h2>
                 </div>
 
             </div>
             <div className='hidden md:flex '>
                 {links}
             </div>
-            <div className=' bg-gradient-to-r from-[#632EE3] to-[#9F62F2] px-4 py-3 rounded-[4px]  '>
+            <div className=' bg-[linear-gradient(160deg,#632EE3,#9F62F2)] px-4 py-3 rounded-[4px]  '>
                 <Link to="https://github.com/atikhassan64/atik-assignment-8.git" target='-blank'><button className='font-semibold text-white cursor-pointer '><i className="fa-brands fa-github"></i> Contribute</button></Link>
             </div>
         </div>
