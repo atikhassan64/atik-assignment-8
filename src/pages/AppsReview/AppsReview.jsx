@@ -18,7 +18,7 @@ const AppsReview = () => {
     const cardReview = cards.find(card => card.id === paramsId);
 
     if (loading) return <p>Loading ....</p>
-    const { downloads, ratingAvg, reviews, mb, ratings, title } = cardReview;
+    const { downloads, ratingAvg, reviews, mb, ratings, title, description } = cardReview;
 
 
 
@@ -73,6 +73,11 @@ const AppsReview = () => {
                     {
                         ratings.map((rating, index) => <Rating key={index} rating={rating} ></Rating>)
                     }
+                </div>
+                <hr className='border-[1px] border-[#D2D2D2] my-[25px] w-full' />
+                <div className='pb-[80px]'>
+                    <h2 className='font-semibold text-[24px] text-[#001931] '>Description</h2>
+                    <p className='text-[20px] text-[#627382] mt-5 '>{description}</p>
                 </div>
             </div>
         </div>

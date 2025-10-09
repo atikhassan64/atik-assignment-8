@@ -22,4 +22,8 @@ const setLocalData = (id) => {
     }
 }
 
-export { setLocalData, getLocalData }
+const setUnInstallData=(id)=>{
+    localStorage.setItem("Installed", JSON.stringify(id))
+}
+
+export { setLocalData, getLocalData, setUnInstallData }

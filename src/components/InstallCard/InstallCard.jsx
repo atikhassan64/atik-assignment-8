@@ -1,8 +1,8 @@
 import React from 'react';
 
-const InstallCard = ({ installData }) => {
-    console.log(installData)
-    const { ratingAvg, downloads, mb, title } = installData
+const InstallCard = ({ installData, handleUninstall }) => {
+    // console.log(installData)
+    const { ratingAvg, downloads, mb, title, id } = installData
     return (
         <div className='flex justify-between items-center bg-white p-4 rounded-[4px] shadow-sm mt-4 '>
             <div className='flex items-center '>
@@ -19,7 +19,7 @@ const InstallCard = ({ installData }) => {
                 </div>
             </div>
             <div>
-                <button className='cursor-pointer bg-[#00D390] px-[20px] py-[14px] rounded-[4px] font-semibold text-white text-[20px] '>Uninstall</button>
+                <button onClick={()=>handleUninstall(id)} className='cursor-pointer bg-[#00D390] px-[20px] py-[14px] rounded-[4px] font-semibold text-white text-[20px] '>Uninstall</button>
             </div>
         </div>
     );
