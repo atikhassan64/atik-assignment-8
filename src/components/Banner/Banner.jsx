@@ -14,10 +14,10 @@ const Banner = () => {
             <div className='flex justify-center items-center my-10 '>
                 <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
                     <div className=''>
-                        <Link to='https://play.google.com/store/games?hl=en' target='-blank'><button className='btn  border-2 mr-4 '><i class="fa-brands text-primary fa-google-play "></i> Google Play</button></Link>
+                        <Link to='https://play.google.com/store/games?hl=en' target='-blank'><button className='btn  border-2 mr-4 '><i className="fa-brands text-primary fa-google-play "></i> Google Play</button></Link>
                     </div>
                     <div className=''>
-                        <Link to='https://www.apple.com/app-store/' target='-blank'><button className='btn border-2 '><i class="fa-brands text-primary fa-app-store-ios"></i>App Store</button></Link>
+                        <Link to='https://www.apple.com/app-store/' target='-blank'><button className='btn border-2 '><i className="fa-brands text-primary fa-app-store-ios"></i>App Store</button></Link>
                     </div>
                 </div>
             </div>

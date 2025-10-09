@@ -6,9 +6,9 @@ import { Menu, X } from 'lucide-react';
 const Header = () => {
 
     const links = <div className=' flex md:flex-row flex-col md:items-center list-none gap-2 md:gap-8 '>
-        <Link><li className='font-medium text-white md:text-black '>Home</li></Link>
-        <Link><li className='font-medium text-white md:text-black '>Apps</li></Link>
-        <Link><li className='font-medium text-white md:text-black '>Installation</li></Link>
+        <Link to='/'><li className='font-medium text-white md:text-black '>Home</li></Link>
+        <Link to='/apps'><li className='font-medium text-white md:text-black '>Apps</li></Link>
+        <Link to='/installation'><li className='font-medium text-white md:text-black '>Installation</li></Link>
     </div>
 
     const [open, setOpen] = useState(false);

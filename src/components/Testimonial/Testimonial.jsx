@@ -10,17 +10,17 @@ const Testimonial = () => {
                 <div className='flex md:flex-row flex-col justify-center gap-10 md:gap-32 items-center mt-[30px]'>
                     <div>
                         <p className='text-center text-white '><small>Total Downloads</small></p>
-                        <h2 className='text-center text-white font-extrabold text-[64px] '>29.6M</h2>
+                        <h2 className='text-center text-white font-bold text-[64px] '>29.6M</h2>
                         <p className='text-center text-white '>21% more than last month</p>
                     </div>
                     <div>
                         <p className='text-center text-white '><small>Total Reviews</small></p>
-                        <h2 className='text-center text-white font-extrabold text-[64px] '>906K</h2>
+                        <h2 className='text-center text-white font-bold text-[64px] '>906K</h2>
                         <p className='text-center text-white '>46% more than last month</p>
                     </div>
                     <div>
                         <p className='text-center text-white '><small>Active Apps</small></p>
-                        <h2 className='text-center text-white font-extrabold text-[64px] '>132+</h2>
+                        <h2 className='text-center text-white font-bold text-[64px] '>132+</h2>
                         <p className='text-center text-white '>31 more will Launch</p>
                     </div>
                 </div>
