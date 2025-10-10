@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const getLocalData = () => {
     const storeAppsSTR = localStorage.getItem("Installed");
     if (storeAppsSTR) {
@@ -12,18 +14,23 @@ const getLocalData = () => {
 const setLocalData = (id) => {
     const storedAppsData = getLocalData();
     if (storedAppsData.includes(id)) {
-        alert('Already added the data')
+        toast("! This app already installed")
     }
     else {
         storedAppsData.push(id);
         const setData = JSON.stringify(storedAppsData);
         localStorage.setItem("Installed", setData)
-        // console.log(storedAppsData)
+        toast("! Install is success")
     }
 }
 
-const setUnInstallData=(id)=>{
+const setUnInstallData = (id) => {
     localStorage.setItem("Installed", JSON.stringify(id))
 }
 
-export { setLocalData, getLocalData, setUnInstallData }
+const getLocalAppsData=()=>{
+     const storedApps = JSON.parse(localStorage.getItem('Installed'));
+     return storedApps 
+}
+
+export { setLocalData, getLocalData, setUnInstallData, getLocalAppsData }

@@ -11,7 +11,7 @@ const HomeCard = ({ homeCard }) => {
 
                 </div>
                 <div>
-                    <h2 className='font-medium text-[15px] text-[#0A0113] '>{title}</h2>
+                    <h2 className='font-medium text-[15px] text-[#0A0113] line-clamp-1 '>{title}</h2>
                     <div className='flex justify-between items-center mt-4 '>
                         <h4 className='font-medium text-[#00D390] px-[10px] py-[6px] bg-[#F1F5E8] rounded-[4px] '><i className="fa-solid mr-2 fa-download"></i>{downloads}</h4>
                         <h4 className='font-medium text-[#FF8811] px-[10px] py-[6px] bg-[#FFF0E1] rounded-[4px] gap-2 '><i className="fa-solid mr-2 fa-star"></i>{ratingAvg}</h4>

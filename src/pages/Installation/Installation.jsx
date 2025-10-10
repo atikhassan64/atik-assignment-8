@@ -2,6 +2,7 @@ import { getLocalData, setLocalData, setUnInstallData } from '../../LocalStorage
 import useCards from '../../hooks/useCards';
 import InstallCard from '../../components/InstallCard/InstallCard';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const Installation = () => {
 
@@ -17,13 +18,13 @@ const Installation = () => {
     }, [cards]);
 
     const sortItem = () => {
-        if (sort === 'rating-asc') {
-            const ratingASC = [...installationData].sort((a, b) => a.ratingAvg - b.ratingAvg)
-            return ratingASC;
+        if (sort === 'download-asc') {
+            const downloadASC = [...installationData].sort((a, b) => parseInt(a.downloads.trim("M"," ")) - parseInt(b.downloads.trim("M"," ")))
+            return downloadASC;
         }
-        else if (sort === 'rating-desc') {
-            const ratingDESC = [...installationData].sort((a, b) => b.ratingAvg - a.ratingAvg)
-            return ratingDESC
+        else if (sort === 'download-desc') {
+            const downloadASC = [...installationData].sort((a, b) => parseInt(b.downloads.trim("M"," ")) - parseInt(a.downloads.trim("M"," ")))
+            return downloadASC
         }
         else {
             return installationData;
@@ -37,25 +38,26 @@ const Installation = () => {
         setUnInstallData(uninstallData)
         const updateUiData = installationData.filter(ui => ui.id !== id)
         setInstallationData(updateUiData);
+        toast("! Uninstall is success")
     }
 
     return (
         <div className='bg-[#F5F5F5]'>
             <div className='max-w-11/12 mx-auto'>
-                <div className='text-center pt-[70px] mb-[50px]'>
-                    <h2 className='font-bold text-[48px] text-[#001931] '>Your Installed Apps</h2>
-                    <p className=' text-xl text-[#627382] mt-3 '>Explore All Trending Apps on the Market developed by us</p>
+                <div className='text-center pt-[50px] md:pt-[70px] mb-[50px]'>
+                    <h2 className='font-bold text-[30px] lg:text-[48px] text-[#001931] '>Your Installed Apps</h2>
+                    <p className=' text-[16px] lg:text-xl text-[#627382] mt-3 '>Explore All Trending Apps on the Market developed by us</p>
                 </div>
                 <div className='flex justify-between items-center'>
                     <div>
-                        <h2 className='font-semibold text-[24px] text-[#001931] '>{installationData.length} Apps Found</h2>
+                        <h2 className='font-semibold text-[18px] lg:text-[24px] text-[#001931] '>{installationData.length} Apps Found</h2>
                     </div>
                     <div>
                         <label className='from-control w-full max-w-xs cursor-pointer'>
                             <select className='select select-bordered outline-none focus:outline-none focus:ring-0 active:border-transparent' value={sort} onChange={e => setSort(e.target.value)}>
                                 <option className='text-[##627382]' value="none">Sort By Size</option>
-                                <option className='text-[##627382]' value="rating-asc">Low-High</option>
-                                <option className='text-[##627382]' value="rating-desc">high-Low</option>
+                                <option className='text-[##627382]' value="download-asc">Low-High</option>
+                                <option className='text-[##627382]' value="download-desc">high-Low</option>
                             </select>
                         </label>
                     </div>

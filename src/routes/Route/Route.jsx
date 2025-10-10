@@ -5,6 +5,7 @@ import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 import Apps from "../../pages/Apps/Apps";
 import AppsReview from "../../pages/AppsReview/AppsReview";
 import Installation from "../../pages/Installation/Installation";
+import ErrorApps from "../../components/ErrorApps/ErrorApps";
 
 
 
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
             {
                 path: '/apps',
                 Component: Apps
+            },
+            {
+                path:'/apps/:error',
+                Component:ErrorApps
             },
             {
                 path: '/review/:id',

@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import { Outlet } from 'react-router';
 import ErrorPage from '../../pages/ErrorPage/ErrorPage';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Root = () => {
     return (
@@ -10,6 +11,19 @@ const Root = () => {
             <Header />
             <Outlet />
             <Footer />
+            <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick={false}
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+
+                />
         </div>
     );
 };
