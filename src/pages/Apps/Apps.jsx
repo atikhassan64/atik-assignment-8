@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useCards from '../../hooks/useCards';
 import AppCard from '../../components/AppCard/AppCard';
 import ErrorApps from '../../components/ErrorApps/ErrorApps';
+import Loading from '../../components/Loading/Loading';
 
 const Apps = () => {
     const { cards, loading, error } = useCards();
+
+    const [searchLoading, setSearchLoading] = useState(false)
 
 
     const [search, setSearch] = useState('');
@@ -14,6 +17,18 @@ const Apps = () => {
             card.title.toLocaleLowerCase().includes(term)
         )
         : cards
+
+    useEffect(() => {
+        if (term) {
+            setSearchLoading(true)
+            const delay = setTimeout(() => {
+                setSearchLoading(false)
+            }, 500);
+            return () => clearTimeout(delay)
+        } else {
+            setSearchLoading(false)
+        }
+    }, [term])
 
 
     return (
@@ -41,21 +56,29 @@ const Apps = () => {
                             </label>
                         </div>
                     </div>
-                    {
-                        searchCards.length === 0 ?
-                            <div>
-                                <ErrorApps ></ErrorApps>
-                            </div>
-                            :
-                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 '>
-                                {
-                                    searchCards.map(appCard => <AppCard
-                                        key={appCard.id}
-                                        appCard={appCard}
-                                    ></AppCard>)
-                                }
-                            </div>
-                    }
+                    <div>
+                        {
+                            loading || searchLoading ? <Loading></Loading> :
+                                <div>
+                                    {
+                                        searchCards.length === 0 ?
+                                            <div>
+                                                <ErrorApps></ErrorApps>
+                                            </div>
+                                            :
+                                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 '>
+                                                {
+                                                    searchCards.map(appCard => <AppCard
+                                                        key={appCard.id}
+                                                        appCard={appCard}
+                                                    ></AppCard>)
+                                                }
+                                            </div>
+                                    }
+                                </div>
+                        }
+                    </div>
+
                 </div>
             </div>
         </div>

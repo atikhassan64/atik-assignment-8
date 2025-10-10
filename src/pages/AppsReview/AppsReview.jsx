@@ -7,6 +7,7 @@ import reviewImg from '../../assets/icon-review.png'
 import Rating from '../../components/Rating/Rating';
 import { getLocalAppsData, setLocalData } from '../../LocalStorage/LocalStorage';
 import { ToastContainer, toast } from 'react-toastify';
+import { Bar, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis, BarChart } from 'recharts';
 
 
 
@@ -25,7 +26,7 @@ const AppsReview = () => {
     }, [paramsId])
 
     if (loading) return <p>Loading ....</p>
-    const { downloads, ratingAvg, reviews, mb, ratings, title, description, companyName } = cardReview;
+    const { downloads, ratingAvg, reviews, mb, ratings, title, description, companyName, image } = cardReview;
 
 
 
@@ -40,8 +41,8 @@ const AppsReview = () => {
             <div className='max-w-11/12 mx-auto'>
 
                 <div className='flex md:flex-row flex-col items-start md:items-center pt-[50px] lg:pt-[80px] '>
-                    <div className=' h-[350px] w-full bg-[#D9D9D9] mr-0 md:mr-[30px] lg:mr-[40px] flex justify-center items-center'>
-
+                    <div className=' h-[350px] lg:w-[350px] w-full mr-0 md:mr-[30px] lg:mr-[40px] flex justify-center items-center'>
+                        <img src={image} alt={title} className='rounded-[8px] h-[350px] lg:w-[350px]'  />
                     </div>
                     <div>
                         <div className='mt-8 md:mt-0'>
@@ -81,9 +82,20 @@ const AppsReview = () => {
                 </div>
                 <hr className='border-[1px] border-[#D2D2D2] my-[40px] w-full' />
                 <div>
-                    {
-                        ratings.map((rating, index) => <Rating key={index} rating={rating} ></Rating>)
-                    }
+                    <h2 className='font-semibold text-[24px] text-[#001931] '>Ratings</h2>
+                    <ResponsiveContainer width="100%" height={300}>
+                        <BarChart
+                            data={ratings}
+                            layout="vertical"
+                            margin={{ top: 20, right: 30, bottom: 5 }}>
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis type="number" />
+                            <YAxis dataKey="name" type="category" reversed={true} />
+                            <Tooltip />
+                            <Legend />
+                            <Bar dataKey="count" fill="#ff9900" />
+                        </BarChart>
+                    </ResponsiveContainer>
                 </div>
                 <hr className='border-[1px] border-[#D2D2D2] my-[25px] w-full' />
                 <div className='pb-[80px]'>

@@ -1,11 +1,12 @@
+
 import React from 'react';
 
-const Rating = ({rating}) => {
-    // console.log(rating)
+const Rating = ({ rating }) => {
+    
     return (
-        <div>
-            I am rating
-        </div>
+       <div>
+
+       </div>
     );
 };
 

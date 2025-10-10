@@ -3,6 +3,7 @@ import useCards from '../../hooks/useCards';
 import InstallCard from '../../components/InstallCard/InstallCard';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import Loading from '../../components/Loading/Loading';
 
 const Installation = () => {
 
@@ -19,11 +20,11 @@ const Installation = () => {
 
     const sortItem = () => {
         if (sort === 'download-asc') {
-            const downloadASC = [...installationData].sort((a, b) => parseInt(a.downloads.trim("M"," ")) - parseInt(b.downloads.trim("M"," ")))
+            const downloadASC = [...installationData].sort((a, b) => parseInt(a.downloads.trim("M", " ")) - parseInt(b.downloads.trim("M", " ")))
             return downloadASC;
         }
         else if (sort === 'download-desc') {
-            const downloadASC = [...installationData].sort((a, b) => parseInt(b.downloads.trim("M"," ")) - parseInt(a.downloads.trim("M"," ")))
+            const downloadASC = [...installationData].sort((a, b) => parseInt(b.downloads.trim("M", " ")) - parseInt(a.downloads.trim("M", " ")))
             return downloadASC
         }
         else {
@@ -62,15 +63,18 @@ const Installation = () => {
                         </label>
                     </div>
                 </div>
-                <div className='pb-[80px]'>
-                    {
-                        sortItem().map(installData => <InstallCard
-                            key={installData.id}
-                            installData={installData}
-                            handleUninstall={handleUninstall}
-                        ></InstallCard>)
-                    }
-                </div>
+                {
+                    loading ? <Loading></Loading> :
+                        <div className='pb-[80px]'>
+                            {
+                                sortItem().map(installData => <InstallCard
+                                    key={installData.id}
+                                    installData={installData}
+                                    handleUninstall={handleUninstall}
+                                ></InstallCard>)
+                            }
+                        </div>
+                }
             </div>
         </div>
     );
