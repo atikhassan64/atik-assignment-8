@@ -2,8 +2,7 @@ import React from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import { Outlet } from 'react-router';
-import ErrorPage from '../../pages/ErrorPage/ErrorPage';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 
 const Root = () => {
     return (
