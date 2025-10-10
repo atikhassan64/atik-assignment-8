@@ -8,7 +8,7 @@ const HomeCard = ({ homeCard }) => {
         <Link to={`/review/${id}`}>
             <div className='bg-white p-[16px] rounded-[4px] shadow-sm '>
                 <div className='mb-4 h-[300px] w-full rounded-[8px]'>
-                    <img src={image} alt={title} className='rounded-[8px] h-[300px] w-full'  />
+                    <img src={image} alt={title} className='rounded-[8px] h-[300px] w-full object-cover'  />
                 </div>
                 <div>
                     <h2 className='font-medium text-[15px] text-[#0A0113] line-clamp-1 '>{title}</h2>

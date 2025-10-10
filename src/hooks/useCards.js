@@ -8,7 +8,7 @@ const useCards = () => {
 
     useEffect(() => {
         setLoading(true)
-        axios('../public/appsData.json')
+        axios('../appsData.json')
             .then(data => setCards(data.data))
             .catch(err => setError(err))
             .finally(() => setLoading(false))

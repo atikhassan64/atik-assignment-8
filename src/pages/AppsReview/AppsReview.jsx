@@ -21,7 +21,7 @@ const AppsReview = () => {
     const cardReview = cards.find(card => card.id === paramsId);
 
     useEffect(() => {
-        const storedAppsData = getLocalAppsData()
+        const storedAppsData = getLocalAppsData() || [];
         storedAppsData.filter(sd => parseInt(sd) === paramsId ? setInstall(true) : '');
     }, [paramsId])
 
@@ -42,7 +42,7 @@ const AppsReview = () => {
 
                 <div className='flex md:flex-row flex-col items-start md:items-center pt-[50px] lg:pt-[80px] '>
                     <div className=' h-[350px] lg:w-[350px] w-full mr-0 md:mr-[30px] lg:mr-[40px] flex justify-center items-center'>
-                        <img src={image} alt={title} className='rounded-[8px] h-[350px] lg:w-[350px]'  />
+                        <img src={image} alt={title} className='rounded-[8px] h-[350px] lg:w-[350px] object-cover '  />
                     </div>
                     <div>
                         <div className='mt-8 md:mt-0'>

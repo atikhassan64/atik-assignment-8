@@ -6,7 +6,7 @@ const InstallCard = ({ installData, handleUninstall }) => {
         <div className='flex justify-between items-center bg-white p-2 md:p-4 rounded-[4px] shadow-sm mt-4 '>
             <div className='flex items-center justify-center '>
                 <div className=' w-[80px] h-[80px] rounded-[8px] mr-4 '>
-                    <img src={image} alt={title} className='rounded-[8px] w-[80px] h-[80px]'  />
+                    <img src={image} alt={title} className='rounded-[8px] w-[80px] h-[80px] object-cover '  />
                 </div>
                 <div>
                     <h1 className=' font-medium text-[16px] md:text-[20px] text-[#001931] '>{title}</h1>
